@@ -45,9 +45,7 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-sleuth</artifactId>
-      <scope>system</scope>
-      <systemPath>${basedir}/src/main/resources/spring-cloud-starter-sleuth-3.1.0-20210707.192008-133.jar</systemPath>
-      <version>1.0</version>
+      <version>3.1.0-snapshot</version>
     </dependency>
   </dependencies>
 
@@ -62,4 +60,29 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.3.1</version>
+        <executions>
+          <execution>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-file</goal>
+            </goals>
+            <configuration>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-sleuth</artifactId>
+              <version>3.1.0-snapshot</version>
+              <packaging>jar</packaging>
+              <file>${basedir}\src\main\resources\spring-cloud-starter-sleuth-3.1.0-20210707.192008-133.jar</file>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
