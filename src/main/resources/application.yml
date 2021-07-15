@@ -1,0 +1,16 @@
+server:
+  port: 10000
+
+spring:
+  session:
+    redis:
+      namespace: seab:session
+    store-type: redis
+  redis:
+    cluster:
+      nodes:
+        - 172.31.22.174:6380
+        - 172.31.22.174:6381
+        - 172.31.22.174:6382
+  cache:
+    type: redis
